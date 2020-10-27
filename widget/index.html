@@ -79,7 +79,18 @@
                 shareMessage = $scope.data.content.shareMessage;
             }
 
-            buildfire.device.share({subject: 'Share App', text: shareMessage, link: $scope.shareUrl});
+            let link = {};
+            link.title = "Share App";
+            link.type = "website";
+            link.description = shareMessage;
+
+            buildfire.deeplink.generateUrl(link, function (err, result) {
+                if (err) {
+                    console.error(err)
+                } else {
+                    buildfire.device.share({subject: link.title, text: shareMessage, link: result.url});
+                }
+            });
         };
 
         function initDeviceSize(callback) {
