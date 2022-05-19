@@ -18,6 +18,10 @@
     <script type="text/javascript" src="../../../scripts/buildfire/components/carousel/carousel.js"></script>
     <script type="text/javascript" src="../../../scripts/buildfire/components/pluginInstance/sortableList.js"></script>
     <script type="text/javascript" src="../js/shared.js"></script>
+    <script type="text/javascript" src="../js/strings.js"></script>
+    <script type="text/javascript" src="../js/stringsHandler.js"></script>
+
+
 </head>
 <body ng-controller="sharePluginCtrl" data-ng-cloak>
 <div class="holder padding-zero">
@@ -30,18 +34,60 @@
                  load-carousel="{{carouselFlags.carouselHasLoaded}}" data-ng-show="carouselFlags.canShowCarousel"></div>
         </div>
         <div class="text-center padded padding-bottom-zero clearfix">
-            <p>Scan to share with QR Code.</p>
+            <p id="scanText">Scanto share with QR Code.</p>
             <div class="qr-holder margin-top-ten" style="max-width:190px; margin:0 auto;">
                 <img ng-src="{{qrCodeUrl}}"/>
                 <div class="margin-top-fifteen">
-                    <a class="btn btn-primary stretch" disabled="disabled" data-ng-click="share();" data-ng-disabled="disableShare">Share the App Via...</a>
+                    <a class="btn btn-primary stretch" disabled="disabled" data-ng-click="share();" data-ng-disabled="disableShare" id="shareBtn">Share the App Via...</a>
                 </div>
             </div>
             <div class="content margin-top-fifteen text-left" data-ng-bind-html="data.content.contentBody"></div>
         </div>
     </div>
 </div>
+
+
 <script>
+    let config = {
+        share: null,
+        message: null,
+        defaultValues:new String()
+    };
+
+
+function callBack(err, data) {
+    if (err) {
+        console.log(err);
+    } else {
+        config.strings = data;
+    }
+
+    // checkValues();
+    if(data){
+        setDefaultData(data.share, data.message);
+    }else{
+        setDefaultData(config.defaultValues.share, config.defaultValues.message);
+    }
+}
+
+StringsHandler.get(callBack);
+
+
+function setDefaultData(share, message){
+    shareBtn.innerHTML = share || config.defaultValues.share;
+    scanText.innerHTML = message || config.defaultValues.message;
+}
+
+
+buildfire.publicData.onUpdate((event) => {
+    if(event.tag === "String"){
+        setDefaultData(event.data.share, event.data.message)
+    }
+});
+</script>
+<script>
+
+
     var sharePluginApp = angular.module('sharePlugin', []);
     var qrGeneratorUrl = 'https://chart.googleapis.com/chart?chs=180x180&cht=qr&chl=';
     var shareUrl = 'http://[appHost]/api/promoProxy/[appId]/';
