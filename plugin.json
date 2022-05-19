@@ -14,7 +14,8 @@
       },
       "settings":{
          "enabled":false
-      }
+      },
+      "customTabs": [{ "title": "Language", "url": "/language/index.html" }]
    },
    "widget":{
 
