@@ -15,7 +15,7 @@
       "settings":{
          "enabled":false
       },
-      "customTabs": [{ "title": "Language", "url": "/language/index.html" }]
+      "customTabs": [{ "title": "Language", "url": "/strings/index.html" }]
    },
    "widget":{
 
