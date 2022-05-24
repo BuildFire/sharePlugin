@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../../styles/control/bf-base.css" />
+  <link href="../../../../styles/helper.css" rel="stylesheet">
+  <link href="../../../../styles/siteIcons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../../../styles/control/siteIcons-control.css" />
+  <link rel="stylesheet" href="../../../../styles/control/siteIcons-control.css" />
+  <link rel="stylesheet" href="./style.css">
+  <!-- build:bundleControlBFMinJS -->
+  <script src="../../../../scripts/buildfire.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:bundleSharedJSFiles  -->
+  <script src="../../widget/js/shared/ui.js"></script>
+  <script src="../../widget/js/shared/strings.js"></script>
+  <script src="../../widget/js/shared/stringsConfig.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:bundleStringJSFiles  -->
+  <script src="./js/stringsUI.js"></script>
+  <script src="./js/app.js" defer></script>
+  <!-- endbuild  -->
+</head>
+
+
+<body class="slide-in" id="languageBody">
+  <!--For future language use-->
+  <select id="langOptions" class="hidden" onchange="loadLanguage(this.value)">
+    <option value="en-us" selected>English - US</option>
+    <option value="es-mx">Spanish - MX</option>
+  </select>
+  <!--For future language use-->
+  <a class="text-success hidden" onclick="createLanguage(langOptions.value)">
+    Click here to begin supporting this language</a>
+  <div id="stringsContainer">loading...</div>
+
+  <button class="btn btn-success" id="saveButton">
+    Save
+  </button>
+</body>
+
+</html>
