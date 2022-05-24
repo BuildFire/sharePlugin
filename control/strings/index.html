@@ -9,21 +9,21 @@
 
   <link rel="stylesheet" href="../../../../styles/control/siteIcons-control.css" />
   <link rel="stylesheet" href="../../../../styles/control/siteIcons-control.css" />
-  <!-- <link rel="stylesheet" href="./style.css"> -->
+  <link rel="stylesheet" href="./style.css">
   <!-- build:bundleControlBFMinJS -->
   <script src="../../../../scripts/buildfire.js"></script>
-   <!-- endbuild -->
-
-   <!-- build:bundleJSFiles  -->
-   <script src="../../data/language.js"></script>
-   <script src="../../dataAccess/language.js"></script>
-   <!-- endbuild -->
+  <!-- endbuild -->
 
   <!-- build:bundleSharedJSFiles  -->
   <script src="../../widget/js/shared/ui.js"></script>
   <script src="../../widget/js/shared/strings.js"></script>
   <script src="../../widget/js/shared/stringsConfig.js"></script>
   <!-- endbuild -->
+
+  <!-- build:bundleStringJSFiles  -->
+  <script src="./js/stringsUI.js"></script>
+  <script src="./js/app.js" defer></script>
+  <!-- endbuild  -->
 </head>
 
 
@@ -37,11 +37,10 @@
   <a class="text-success hidden" onclick="createLanguage(langOptions.value)">
     Click here to begin supporting this language</a>
   <div id="stringsContainer">loading...</div>
-</body>
 
-  <!-- build:bundleStringJSFiles  -->
-  <script src="./js/stringsUI.js"></script>
-  <script src="./js/app.js"></script>
-  <!-- endbuild  -->
+  <button class="btn btn-success" id="saveButton">
+    Save
+  </button>
+</body>
 
 </html>
