@@ -48,18 +48,10 @@ const initialState = async () => {
   await loadingAndCreateLanguage(langOptions.value);
 };
 
-async function checkInputs() {
-  var inputs = document.getElementsByTagName("input");
-  const events = ["keyup", "change"];
-  for (var j = 0; j < events.length; j++) {
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener(events[j], (e) => {
-        save();
-      });
-    }
-  }
-
-  return true;
+function saveOnClick(){
+  saveButton.addEventListener("click", save);
 }
+
+
 initialState();
-checkInputs();
+saveOnClick();
