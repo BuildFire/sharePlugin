@@ -1,12 +1,17 @@
 const config = {
     messageText: "",
 };
-Languages.get((err, res) => {
-    console.log('res -=>', res);
+
+let strings = new buildfire.services.Strings(null, stringsConfig);
+strings.init().then(() => {
+  strings.inject();
+});
+
+strings.refresh((err, res) => {
     if (err) console.error(err);
     else {
-        shareBtn.innerHTML = res.data.screenOne.share.value || res.data.screenOne.share.defaultValue;
-        shareText.innerHTML = res.data.screenOne.message.value || res.data.screenOne.message.defaultValue;
+        shareBtn.innerHTML = strings._data.screenOne.share.value || strings._data.screenOne.share.defaultValue;
+        shareText.innerHTML = strings._data.screenOne.message.value || strings._data.screenOne.message.defaultValue;
     }
 });
 
@@ -18,7 +23,6 @@ buildfire.messaging.onReceivedMessage = (message) => {
                 shareText.innerHTML = e.data.screenOne.message.value || e.data.screenOne.message.defaultValue;
             }
         });
-
     }
 };
 
