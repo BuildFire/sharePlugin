@@ -22,11 +22,11 @@
 </head>
 <body ng-controller="sharePluginCtrl" data-ng-cloak>
 <div class="holder padding-zero">
-    <div class="share-plugin">
+    <div class="share-plugin main-page">
         <div class="share-banner clearfix" data-ng-show="data.content.carouselImages.length">
             <img src="../../../styles/media/holder-16x9.gif"
                  ng-if="!carouselFlags.canShowCarousel"
-                 style="position: absolute; width: 100%;"/>
+                 style="position: absolute; width: 100%; max-height: 380px;"/>
             <div id="carousel" class="plugin-slider text-center"
                  load-carousel="{{carouselFlags.carouselHasLoaded}}" data-ng-show="carouselFlags.canShowCarousel"></div>
         </div>
