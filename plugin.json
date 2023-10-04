@@ -1,7 +1,7 @@
 {
    "author":"BuildFire",
    "pluginName":"Share App",
-   "pluginDescription":"Leverage your users' networks by encouraging them to share your app via Facebook, Twitter, SMS, and email.",
+   "pluginDescription":"Enables easy app sharing through QR codes and social media, boost downloads and user engagement.",
    "supportEmail":"support@buildfire.com",
    "supportSite":"https://learn.appdocumentation.com/en/articles/805469-share-app-plugin-tutorial",
    "offlineModeEnabled": true,
@@ -23,5 +23,31 @@
    ],
    "languages":[
       "en"
-   ]
+   ],
+   "media": [
+      {
+        "type": "image-resource",
+        "path": "1-Plugin.png"
+      },
+      {
+        "type": "image-resource",
+        "path": "2-Benefits.png"
+      },
+      {
+        "type": "image-resource",
+        "path": "3-Use-Cases.png"
+      },
+      {
+        "type": "image-resource",
+        "path": "4-Content-Tab.png"
+      },
+      {
+        "type": "image-resource",
+        "path": "5-Analytics-Tab.png"
+      },
+      {
+        "type": "youtube-video",
+        "path": "https://www.youtube.com/watch?v=lJRkRzWQIw8"
+      }
+    ]
 }
