@@ -69,10 +69,12 @@
             }
             else {
                 $scope.shareUrl = shareUrl.replace('[appHost]', context.cpDomain).replace('[appId]', context.appId);
-                const qr = qrcode(10, 'L');
-                qr.addData($scope.shareUrl);
-                qr.make();
-                document.getElementById('qrcodeContainer').innerHTML = qr.createImgTag();
+                const qrcode = new QRCode("qrcodeContainer", {
+                    text: $scope.shareUrl,
+                    width: 180,
+                    height: 180,
+                    correctLevel : QRCode.CorrectLevel.H,
+                });
             }
         });
 
