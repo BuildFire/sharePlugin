@@ -34,7 +34,7 @@
         <div class="text-center padded padding-bottom-zero clearfix">
             <p>Scan to share with QR Code.</p>
             <div class="qr-holder margin-top-ten" style="max-width:190px; margin:0 auto;">
-                <div class="flex flex-justify-center" id="qrcodeContainer"></div>
+                <div class="qrcodeContainer flex flex-justify-center" id="qrcodeContainer"></div>
                 <div class="margin-top-fifteen">
                     <a class="btn btn-primary stretch" disabled="disabled" data-ng-click="share();" data-ng-disabled="disableShare">Share the App Via...</a>
                 </div>
@@ -72,8 +72,8 @@
                 // Generate QR Code using qrcodejs library
                 const qrcode = new QRCode("qrcodeContainer", {
                     text: $scope.shareUrl,
-                    width: 180,
-                    height: 180,
+                    width: 170,
+                    height: 170,
                     correctLevel : QRCode.CorrectLevel.H,
                 });
             }

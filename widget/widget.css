@@ -3,3 +3,7 @@
     flex-direction: column;
     gap: 15px;
 }
+
+.qrcodeContainer {
+    padding: 10px;
+}
