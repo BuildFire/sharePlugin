@@ -69,6 +69,7 @@
             }
             else {
                 $scope.shareUrl = shareUrl.replace('[appHost]', context.cpDomain).replace('[appId]', context.appId);
+                // Generate QR Code using qrcodejs library
                 const qrcode = new QRCode("qrcodeContainer", {
                     text: $scope.shareUrl,
                     width: 180,
