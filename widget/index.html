@@ -18,6 +18,7 @@
     <script type="text/javascript" src="../../../scripts/owlCarousel/owlCarousel.js"></script>
     <script type="text/javascript" src="../../../scripts/buildfire/components/carousel/carousel.js"></script>
     <script type="text/javascript" src="../../../scripts/buildfire/components/pluginInstance/sortableList.js"></script>
+    <script type="text/javascript" src="./js/qrcode.min.js"></script>
     <script type="text/javascript" src="../js/shared.js"></script>
 </head>
 <body ng-controller="sharePluginCtrl" data-ng-cloak>
@@ -33,7 +34,7 @@
         <div class="text-center padded padding-bottom-zero clearfix">
             <p>Scan to share with QR Code.</p>
             <div class="qr-holder margin-top-ten" style="max-width:190px; margin:0 auto;">
-                <img ng-src="{{qrCodeUrl}}"/>
+                <div id="qrcodeContainer"></div>
                 <div class="margin-top-fifteen">
                     <a class="btn btn-primary stretch" disabled="disabled" data-ng-click="share();" data-ng-disabled="disableShare">Share the App Via...</a>
                 </div>
@@ -44,7 +45,6 @@
 </div>
 <script>
     var sharePluginApp = angular.module('sharePlugin', []);
-    var qrGeneratorUrl = 'https://chart.googleapis.com/chart?chs=180x180&cht=qr&chl=';
     var shareUrl = 'http://[appHost]/api/promoProxy/[appId]/';
     sharePluginApp.controller('sharePluginCtrl', ['$scope', '$sce', function ($scope, $sce) {
         var view = null;
@@ -69,7 +69,10 @@
             }
             else {
                 $scope.shareUrl = shareUrl.replace('[appHost]', context.cpDomain).replace('[appId]', context.appId);
-                $scope.qrCodeUrl = qrGeneratorUrl + $scope.shareUrl;
+                const qr = qrcode(10, 'L');
+                qr.addData($scope.shareUrl);
+                qr.make();
+                document.getElementById('qrcodeContainer').innerHTML = qr.createImgTag();
             }
         });
 
