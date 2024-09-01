@@ -45,7 +45,6 @@
 </div>
 <script>
     var sharePluginApp = angular.module('sharePlugin', []);
-    var shareUrl = 'http://[appHost]/api/promoProxy/[appId]/';
     sharePluginApp.controller('sharePluginCtrl', ['$scope', '$sce', function ($scope, $sce) {
         var view = null;
 
@@ -68,8 +67,12 @@
                 console.log(err);
             }
             else {
-                $scope.shareUrl = shareUrl.replace('[appHost]', context.cpDomain).replace('[appId]', context.appId);
-                // Generate QR Code using qrcodejs library
+                 if(context.appPwaHost && context.appName) {
+                     $scope.shareUrl = `${context.appPwaHost}/promo/${encodeURIComponent(context.appName)}`;
+                 }
+                 else {
+                     $scope.shareUrl = `${context.wlAppHost}/api/promoProxy/${context.appId}`;
+                 }
                 const qrcode = new QRCode("qrcodeContainer", {
                     text: $scope.shareUrl,
                     width: 170,
