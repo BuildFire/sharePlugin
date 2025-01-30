@@ -67,8 +67,14 @@
                 console.log(err);
             }
             else {
+              
                  if(context.appPwaHost && context.appName) {
-                     $scope.shareUrl = `${context.appPwaHost}/promo/${encodeURIComponent(context.appName)}`;
+                     if (context.device.platform === 'iOS'){
+                         $scope.shareUrl = `${context.appPwaHost}/promo/${(context.appName)}`;
+                     }
+                     else {
+                         $scope.shareUrl = `${context.appPwaHost}/promo/${encodeURIComponent(context.appName)}`;
+                     }
                  }
                  else {
                      $scope.shareUrl = `${context.wlAppHost}/api/promoProxy/${context.appId}`;
