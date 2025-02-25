@@ -2,7 +2,8 @@
    "author":"Buildfire",
    "pluginName":"App Sharer",
    "pluginDescription":"Enable easy app sharing through QR codes and social media with our Share plugin, boosting downloads, increasing visibility, and driving user engagement effortlessly.",
-   "supportEmail":"support@buildfire.com",
+   "keywords": "Share App",
+  "supportEmail":"support@buildfire.com",
    "supportSite":"https://learn.appdocumentation.com/en/articles/805469-share-app-plugin-tutorial",
    "offlineModeEnabled": true,
    "control":{
