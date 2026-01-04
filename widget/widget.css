@@ -1,6 +1,5 @@
-html {
+body {
   padding-top: var(--bf-safe-area-inset-top);
-  padding-bottom: var(--bf-safe-area-inset-bottom);
 
 }
 .share-plugin.main-page{
